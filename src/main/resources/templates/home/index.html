@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>맛zip</title>
+    <link rel="stylesheet" th:href="@{/resources/stylesheets/common.css}">
+    <link rel="stylesheet" th:href="@{/resources/stylesheets/index.css}">
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d8d2b040058c4e98057aaa4936cd8f42"></script>
+    <script src="https://kit.fontawesome.com/ff43611d34.js" crossorigin="anonymous"></script>
+    <script defer th:src="@{/resources/scripts/index.js}"></script>
+</head>
+<body>
+<section class="list-container" id="listContainer">
+    <form class="search-form" id="searchForm">
+        <span class="title">matzip</span>
+        <label class="label">
+            <span hidden>검색어</span>
+            <input autofocus class="input" maxlength="100" name="keyword" placeholder="맛집을 검색해 보세요." type="text">
+        </label>
+        <div class="button-container">
+            <a class="button" href="https://kauth.kakao.com/oauth/authorize?client_id=8f4e9397ae2376cafdae55a54a4ec6f4&redirect_uri=http://localhost:8080/member/kakao&response_type=code" target="_blank"  id="loginButton" th:if="${session.user==null}">로그인</a>
+            <a th:href="@{./member/logout}"
+               th:if="${session.user != null}"
+               class="button" id="logoutButton">로그아웃</a>
+        </div>
+    </form>
+    <ul class="list" id="list">
+        <li class="item">
+        <span class="info">
+            <span class="name-container">
+                <span class="name">용정반점</span>
+                <span class="category">중식</span>
+            </span>
+            <span class="open-container">
+                <span class="working">영업 전</span>
+                <span class="hour">17:00에 영업 시작</span>
+            </span>
+            <span class="address-container">대구 북구 고성동3가 1층 </span>
+            </span>
+        <img alt="" class="image" src="">
+        </li>
+        <li class="item">
+        <span class="info">
+            <span class="name-container">
+                <span class="name">용정반점</span>
+                <span class="category">중식</span>
+            </span>
+            <span class="rating-container">
+                <span class="start-container">
+                    <i class="star filled fa-solid fa-star"></i>
+                    <i class="star filled  fa-solid fa-star"></i>
+                    <i class="star filled fa-solid fa-star"></i>
+                    <i class="star filled fa-solid fa-star"></i>
+                    <i class="star fa-solid fa-star"></i>
+
+                </span>
+                <span class="score">4.1</span>
+                <span class="count">7건</span>
+                <span class="review-count">리뷰 13</span>
+
+
+
+            </span>
+            <span class="open-container">
+                <span class="working">영업 전</span>
+                <span class="hour">17:00에 영업 시작</span>
+            </span>
+            <span class="address-container">대구 북구 고성동3가 1층 </span>
+            <span class="contact"> 053-000-0000</span>
+            </span>
+            <img alt="" class="image" src="">
+        </li>
+    </ul>
+
+</section>
+<section class="detail-container" id="detailContainer">
+    <div class="title-container">
+        <span class="title" rel="title"></span>
+    <a class="close-button" href="#" rel="closeButton">
+    <i class="icon fa solid-fa-x"></i>
+    </a>
+    </div>
+    <div class="image-container" id="imageContainer">
+        <div class="no-image">
+            <i class="icon fa-solid fa-circle-exclamation"></i>
+            <span class="text">아직 등록된 이미지가 없어요!</span>
+        </div>
+        <img alt="" src="http://www.bhc.co.kr/upload/bhc/menu/410x271_view_%EC%B9%98%ED%90%81%EB%8B%B9%ED%95%9C%EB%A7%88%EB%A6%AC(0).png" class="image">
+        <img alt="" src="https://upload.wikimedia.org/wikipedia/commons/2/20/Korean_fried_chicken_3_banban.jpg" class="image">
+        <img alt="" src="https://image.edaily.co.kr/images/Photo/files/NP/S/2022/06/PS22061500966.jpg" class="image">
+        <img alt="" src="https://t1.daumcdn.net/cfile/tistory/2403BA485896A5C829" class="image">
+        <img alt="" src="https://img.seoul.co.kr/img/upload/2021/11/12/SSI_20211112030226.jpg" class="image">
+        <img alt="" src="https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202201/15/780fb38c-2b17-4f3f-9294-b6cdaa4d6869.jpg" class="image">
+        <img alt="" src="https://img.hankyung.com/photo/202206/01.30401212.1.jpg" class="image">
+        <img alt="" src="https://img.khan.co.kr/news/2021/05/09/l_2021051001000864600073041.jpg" class="image">
+        <img alt="" src="https://thumb.mt.co.kr/06/2022/07/2022071713225256537_1.jpg/dims/optimize/" class="image">
+        <img alt="" src="http://www.bhc.co.kr/upload/bhc/menu/%EB%BF%8C%EB%A7%81%ED%81%B4_410x271.png" class="image">
+        <img alt="" src="https://vegefeed.wisacdn.com/_data/product/goods/20/10/41/1000000112//4c94428ffac2ea1fd697345a2b2fdc43.jpg" class="image">
+        <img alt="" src="https://img.hankyung.com/photo/202111/02.28075433.1-1200x.jpg" class="image">
+    </div>
+    <div class="rate-container">
+        <span class="title" rel="title">코리아IT아카데미</span>
+        <span class="star-container">
+            <i class="icon fa-solid fa-star"></i>
+            <span class="score" rel="score">4.1</span>
+            <span class="full-score">/5</span>
+        </span>
+        <div class="button-container">
+            <a class="button" href="#" rel="favoritButton">
+                <i class="icon fa-solid fa- star"></i>
+                <span class="text">즐겨찾기</span>
+            </a>
+        </div>
+    </div>
+    <ul class="info-container">
+        <li class="item">
+            <i class="icon fa-solid fa-location-dot"></i>
+            <span class="text" rel="addressText">대구 광역시 중구 중앙대로 366 10층</span>
+        </li>
+        <li class="item">
+            <i class="icon fa-regular fa-clock"></i>
+            <span class="text" rel="openText">00:00 부터 00:00 까지</span>
+        </li>
+        <li class="item">
+            <i class="icon fa-solid fa-phone"></i>
+            <span class="text">
+                <a class="link" href="tel:053-710-5890" rel="contactText">053-710-5890</a>
+            </span>
+        </li>
+        <li class="item">
+            <i class="icon fa-solid fa-house-chimney"></i>
+            <span class="text">
+                <a class="link" href="https://www.blah.com" rel="homepageText">https://www.blah.com</a>
+            </span>
+        </li>
+        <li class="item">
+            <i class="icon fa-solid fa-circle-info"></i>
+            <span class="text">
+                <a class="text"rel="descriptionText">어쩌고 저쩌고</a>
+            </span>
+        </li>
+    </ul>
+    <div class="review-unsigned" th:if="${session.user==null}">로그인 후 리뷰를 작성할 수 있어용~</div>
+    <form class="review-form" id="reviewForm" th:if="${session.user!=null}">
+        <input name="placeIndex" type="hidden">
+        <input name="score" type="hidden" value="0">
+        <input hidden multiple accept="image/*" name="images" type="file">
+        <span class="title">리뷰 작성</span>
+        <div class="score-container">
+            <span class="score" rel="score">-</span>
+            <span class="full-score">/5</span>
+            <div class="star-container" rel="starContainer">
+                <i class="star filled fa-solid fa-star"></i>
+                <i class="star filled  fa-solid fa-star"></i>
+                <i class="star filled fa-solid fa-star"></i>
+                <i class="star filled fa-solid fa-star"></i>
+                <i class="star filled fa-solid fa-star"></i>
+            </div>
+        </div>
+        <div class="content-container">
+            <label class="label">
+                <span hidden>리뷰 내용</span>
+                <input class="input" maxlength="100" name="content" placeholder="리뷰를 작성해 주세요." type="text">
+            </label>
+            <input class="submit-button" type="submit" value="작성">
+        </div>
+        <div class="image-container" rel="imageContainer">
+           <div class="no-image" rel="noImage">선택된 이미지가 없습니다.</div>
+        </div>
+        <a class="image-select-button" href="#" rel="imageSelectButton">이미지 선택...</a>
+    </form>
+    <ul class="review-container" rel="reviewContainer">
+        <li class="item">
+            <span class="nickname" rel="nickname">닉네임자리</span>
+            <div class="image-container" rel="imageContainer">
+                <img alt="" src="http://www.bhc.co.kr/upload/bhc/menu/410x271_view_%EC%B9%98%ED%90%81%EB%8B%B9%ED%95%9C%EB%A7%88%EB%A6%AC(0).png" class="image">
+                <img alt="" src="http://www.bhc.co.kr/upload/bhc/menu/410x271_view_%EC%B9%98%ED%90%81%EB%8B%B9%ED%95%9C%EB%A7%88%EB%A6%AC(0).png" class="image">
+                <img alt="" src="http://www.bhc.co.kr/upload/bhc/menu/410x271_view_%EC%B9%98%ED%90%81%EB%8B%B9%ED%95%9C%EB%A7%88%EB%A6%AC(0).png" class="image">
+                <img alt="" src="http://www.bhc.co.kr/upload/bhc/menu/410x271_view_%EC%B9%98%ED%90%81%EB%8B%B9%ED%95%9C%EB%A7%88%EB%A6%AC(0).png" class="image">
+            </div>
+            <span class="content" rel="content">어쩌고 저쩌고</span>
+            <span class="date" rel="date">2022-10-01</span>
+        </li>
+    </ul>
+</section>
+<section class="map-container" id="mapContainer">
+    <div class="cover" rel="cover"> 지도를 불러오고 있습니다..</div>
+</section>
+<div class="login-container" id="loginContainer">
+</div>
+</body>
+</html>
