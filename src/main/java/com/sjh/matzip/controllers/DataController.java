@@ -72,6 +72,10 @@ public class DataController {
         responseObject.put("result",result.name().toLowerCase());
         return responseObject.toString();
     }
+    @DeleteMapping(value = "review",produces = MediaType.APPLICATION_JSON_VALUE)
+    public String deleteReview(){
+        return null;
+    }
 
     @GetMapping(value = "reviewImage")
     public ResponseEntity<byte[]> getReviewImage(@RequestParam(value = "index") int index) {
@@ -88,4 +92,5 @@ public class DataController {
         }
         return responseEntity;
     }
+
 }
